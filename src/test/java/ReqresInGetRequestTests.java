@@ -1,21 +1,23 @@
 import org.junit.jupiter.api.Test;
-import static io.restassured.RestAssured.get;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
 public class ReqresInGetRequestTests extends TestBase {
 
     @Test
-    void listUserTotal(){
-        get(listUsers)
+    void listUserTotalTest(){
+        given()
+                .log().uri()
+                .when()
+                .get(listUsers)
                 .then()
                 .log().body()
-                .body("total", is(12))
-                .statusCode(200);
+                .statusCode(200)
+                .body("total", is(12));
     }
 
     @Test
-    void listUserIdValues(){
+    void listUserIdValuesTest(){
         given()
                 .log().uri()
                 .when()
@@ -27,7 +29,7 @@ public class ReqresInGetRequestTests extends TestBase {
     }
 
     @Test
-    void singleUserFirstName (){
+    void singleUserFirstNameTest(){
         given()
                 .log().all()
                 .when()
