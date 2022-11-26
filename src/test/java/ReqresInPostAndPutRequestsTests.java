@@ -59,7 +59,6 @@ public class ReqresInPostAndPutRequestsTests extends TestBase {
 
     @Test
     void updateUserTest(){
-
         String data = "{ \"name\": \"Timur Maksyutov\", \"job\": \"Qa Head Lead\" }";
 
         given()
